@@ -3,21 +3,19 @@ import { DisneyCharacter } from "../disney_character";
 import Character from "./character";
 
 interface CharacterContainerProps {
-  characters: Array<DisneyCharacter>;
-  characterFavourites: Array<number>;
+  characters: Array<DisneyCharacter>;  
   updateFavourites: (favourites: Array<number>) => void;
 }
 
 const CharacterContainer: React.FC<CharacterContainerProps> = ({
-  characters, characterFavourites, updateFavourites
+  characters, updateFavourites
 }) => {
 
   return (
     <div className="card-container">
       {characters.map((character) => (
         <Character key={character._id} 
-                  character={character} 
-                  characterFavourites={characterFavourites}
+                  character={character}                  
                   updateFavourites={updateFavourites}
           />
       ))}
