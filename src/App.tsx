@@ -12,6 +12,8 @@ const App: React.FC = () => {
 
   const [characters, setCharacters] = useState<Array<DisneyCharacter>>([]);
 
+  const [characterFavourites, setCharacterFavourites] = useState<Array<number>>([]);
+
   useEffect(() => {
     const getCharacters = async (pageNumber: number) => {
       const apiResponse = await fetch(`https://api.disneyapi.dev/characters?page=${pageNumber}}`);
@@ -26,7 +28,7 @@ const App: React.FC = () => {
           <Header currentPage={currentPage} />
           <Navigation
             currentPage={currentPage} setCurrentPage={setCurrentPage} />
-          <CharacterContainer characters={characters} />
+          <CharacterContainer characters={characters} characterFavourites={characterFavourites} updateFavourites={setCharacterFavourites} />
         </div>
   );
 };
