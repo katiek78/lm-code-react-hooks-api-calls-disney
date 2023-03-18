@@ -13,7 +13,7 @@ const Character: React.FC<CharacterProps> = ({ character }) => {
 
       <h2>{character.name}</h2>
 
-      <button className="card__button " onClick={() => toggleFavourites(character._id)}>{!favourites.includes(character._id) ? "Add to Favourites" : "Favourited"}</button>
+      <button className="card__button " onClick={() => toggleFavourites(character)}>{!favourites.find((favourite) => favourite._id === character._id) ? "Add to Favourites" : "Favourited"}</button>
 
       <img
         className="card__img"

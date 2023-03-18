@@ -22,8 +22,11 @@ test('Show Favourites button click calls toggleDisplayFavourites', () => {
     expect(mockToggleDisplayFavourites).toHaveBeenCalledTimes(1);
   });
 
+  //NOTE: Having difficulty testing whether button text changes! Tried 3 different ways
+  //Ultimately don't know how to call setDisplayFavourites as it's passed down via props
+
 // test('displayFavourites is changed via toggleDisplayFavourites', () => {
-//     const { container } = render(<Navigation currentPage={0} setCurrentPage={jest.fn()}  displayingFavourites={false} setDisplayFavourites={jest.fn()} />);            
+//     render(<Navigation currentPage={0} setCurrentPage={jest.fn()}  displayingFavourites={false} setDisplayFavourites={jest.fn()} />);            
 //     const buttonElement = screen.getByText(/Show Favourites/i, { selector: "button" });
 //     fireEvent.click(buttonElement);
 //     expect(displayingFavourites).toBeTruthy();

@@ -5,6 +5,8 @@ import CharacterContainer from "./components/character_container";
 import Navigation from "./components/navigation";
 import { DisneyCharacter } from "./disney_character";
 import { FavCharacterProvider } from "./components/favourites_context";
+import FavCharacterContainer from "./components/favourite_character_container";
+// import { useFavourites } from "./components/favourites_context";
 
 const App: React.FC = () => {
   
@@ -26,10 +28,11 @@ const App: React.FC = () => {
   return (
     <FavCharacterProvider>
         <div className="page">
-          <Header currentPage={currentPage} />
+          <Header currentPage={currentPage} displayingFavourites={displayingFavourites} />
           <Navigation
             currentPage={currentPage} setCurrentPage={setCurrentPage} displayingFavourites={displayingFavourites} setDisplayFavourites={setDisplayingFavourites} />
-          <CharacterContainer characters={characters} />
+          {!displayingFavourites && <CharacterContainer characters={characters} />}
+          {displayingFavourites && <FavCharacterContainer />}          
         </div>
     </FavCharacterProvider>
   );
